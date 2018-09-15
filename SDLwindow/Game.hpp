@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "TextureManager.hpp"
 #include <iostream>
 
 class Game
@@ -23,4 +24,5 @@ private:
 	int cnt = 0;
 	SDL_Window *window;
 	SDL_Renderer *renderer;
+
 };

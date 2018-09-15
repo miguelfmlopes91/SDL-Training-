@@ -1,15 +1,14 @@
 #include "Game.hpp"
-#include "TextureManager.hpp"
+#include "GameObject.hpp"
+
+GameObject* player;
+GameObject* enemy;
 
 Game::Game()
 {}
 
 Game::~Game()
 {}
-
-SDL_Texture* playerTexture;
-SDL_Rect srcR, destR;
-
 
 void Game::init(const char* title, int width, int height, bool fullscreen)
 {
@@ -32,7 +31,10 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	playerTexture = TextureManager::LoadTexure("Resources/spritesheet.png", renderer);
+	player = new GameObject("Resources/player.png", renderer, 0,0);
+	enemy = new GameObject("Resources/enemy.png", renderer, 50, 50);
+
+
 }
 
 void Game::handleEvents()
@@ -53,22 +55,17 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	cnt++;
-
-	destR.h = 32;
-	destR.w = 32;
-	destR.x = cnt;
-
-	std::cout << cnt << std::endl;
+	player->Update();
+	enemy->Update();
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	//add all textures to be rendered
-	SDL_RenderCopy(renderer, playerTexture, NULL, &destR);
 
-
+	player->Render();
+	enemy->Render();
 	SDL_RenderPresent(renderer);
 }
 
