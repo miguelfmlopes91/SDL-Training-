@@ -7,6 +7,10 @@ Game::Game()
 Game::~Game()
 {}
 
+SDL_Texture* textureObject;
+SDL_Rect srcR, destR;
+
+
 void Game::init(const char* title, int width, int height, bool fullscreen)
 {
 	int flags = 0;
@@ -27,6 +31,10 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 		isRunning = true;
 	}
+
+	SDL_Surface* tmpSurface = IMG_Load("Resources/spritesheet.png");
+	textureObject = SDL_CreateTextureFromSurface(renderer,tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 }
 
 void Game::handleEvents()
@@ -48,12 +56,21 @@ void Game::handleEvents()
 void Game::update()
 {
 	cnt++;
+
+	destR.h = 32;
+	destR.w = 32;
+	destR.x = cnt;
+
 	std::cout << cnt << std::endl;
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
+	//add all textures to be rendered
+	SDL_RenderCopy(renderer, textureObject, NULL, &destR);
+
+
 	SDL_RenderPresent(renderer);
 }
 
