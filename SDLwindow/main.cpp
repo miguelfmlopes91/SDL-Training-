@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include "Game.hpp"
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 640
 #define FPS 60
 
 Game *game = nullptr;
