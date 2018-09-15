@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 	{
 		frameStart = SDL_GetTicks(); //how many miliseconds has been since SDL has been initialized
 
-
 		game->handleEvents();
 		game->update();
 		game->render();

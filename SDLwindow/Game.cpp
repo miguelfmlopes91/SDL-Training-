@@ -1,5 +1,5 @@
 #include "Game.hpp"
-
+#include "TextureManager.hpp"
 
 Game::Game()
 {}
@@ -7,7 +7,7 @@ Game::Game()
 Game::~Game()
 {}
 
-SDL_Texture* textureObject;
+SDL_Texture* playerTexture;
 SDL_Rect srcR, destR;
 
 
@@ -32,9 +32,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	SDL_Surface* tmpSurface = IMG_Load("Resources/spritesheet.png");
-	textureObject = SDL_CreateTextureFromSurface(renderer,tmpSurface);
-	SDL_FreeSurface(tmpSurface);
+	playerTexture = TextureManager::LoadTexure("Resources/spritesheet.png", renderer);
 }
 
 void Game::handleEvents()
@@ -68,7 +66,7 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 	//add all textures to be rendered
-	SDL_RenderCopy(renderer, textureObject, NULL, &destR);
+	SDL_RenderCopy(renderer, playerTexture, NULL, &destR);
 
 
 	SDL_RenderPresent(renderer);
