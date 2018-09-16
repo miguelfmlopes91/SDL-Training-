@@ -4,12 +4,14 @@
 #include "ECS/ECS.hpp"
 #include "ECS/Components.hpp"
 #include "Vector2D.hpp"
+#include "ECS\KeyboardController.hpp"
 
 Map* map;
+Manager manager;
 
 SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
 
-Manager manager;
 auto& player(manager.addEntity());
 
 Game::Game()
@@ -42,6 +44,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	map = new Map();
 	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("Resources/player.png");
+	player.addComponent<KeyboardController>();
 
 	//Player.getComponent<TransformComponent>().setPos(300, 300);
 
@@ -49,7 +52,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 void Game::handleEvents()
 {
-	SDL_Event event;
+
 
 	SDL_PollEvent(&event);
 
@@ -67,12 +70,6 @@ void Game::update()
 {
 	manager.refresh();
 	manager.update();
-	player.getComponent<TransformComponent>().position.Add(Vector2D(5, 0));
-	if (player.getComponent<TransformComponent>().position.x > 100)
-	{
-		player.getComponent<SpriteComponent>().setTex("Resources/enemy.png");
-	}
-
 }
 
 void Game::render()
