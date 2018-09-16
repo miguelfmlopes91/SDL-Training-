@@ -18,15 +18,15 @@ public:
 	void init() override {
 
 		//initializse position as a entity a component of type Position Component
-		position = &entity->getComponent<TransformComponent>();
+		transform = &entity->getComponent<TransformComponent>();
 
 		srcRect.x = srcRect.y = 0;
 		srcRect.w = srcRect.h = 32;
 		destRect.w = destRect.h = 64;
 	}
 	void update() override {
-		destRect.x = position->x();
-		destRect.y = position->y();
+		destRect.x = transform->x();
+		destRect.y = transform->y();
 	}
 	void draw() override {
 		TextureManager::Draw(texture, srcRect, destRect);
@@ -36,7 +36,7 @@ public:
 
 private:
 	//reference to the posiiton because spritecomponent is responsible for drawing itself on the screen
-	TransformComponent* position;
+	TransformComponent* transform;
 	SDL_Texture* texture;
 	SDL_Rect srcRect, destRect;
 

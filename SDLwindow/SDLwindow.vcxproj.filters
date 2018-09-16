@@ -30,7 +30,7 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2Dim.cpp">
+    <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +59,7 @@
     <ClInclude Include="ECS\PositionComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2Dim.hpp">
+    <ClInclude Include="Vector2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
