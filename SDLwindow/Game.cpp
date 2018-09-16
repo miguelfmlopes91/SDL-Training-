@@ -40,10 +40,10 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	}
 
 	map = new Map();
-	player.addComponent<PositionComponent>();
+	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("Resources/player.png");
 
-	//Player.getComponent<PositionComponent>().setPos(300, 300);
+	//Player.getComponent<TransformComponent>().setPos(300, 300);
 
 }
 
@@ -68,7 +68,7 @@ void Game::update()
 	manager.refresh();
 	manager.update();
 
-	if (player.getComponent<PositionComponent>().x()> 100)
+	if (player.getComponent<TransformComponent>().x()> 100)
 	{
 		player.getComponent<SpriteComponent>().setTex("Resources/enemy.png");
 	}

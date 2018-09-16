@@ -151,6 +151,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Vector2Dim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="TextureManager.hpp" />
+    <ClInclude Include="Vector2Dim.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

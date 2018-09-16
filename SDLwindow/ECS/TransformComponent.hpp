@@ -2,7 +2,7 @@
 
 #include "Components.hpp"
 
-class PositionComponent : public Component
+class TransformComponent : public Component
 {
 private:
 	int xpos;
@@ -10,11 +10,11 @@ private:
 
 public:
 
-	PositionComponent() {
+	TransformComponent() {
 		 xpos = 0;
 		 ypos = 0;
 	}
-	PositionComponent(int x, int y) {
+	TransformComponent(int x, int y) {
 		xpos = x;
 		ypos = y;
 	}

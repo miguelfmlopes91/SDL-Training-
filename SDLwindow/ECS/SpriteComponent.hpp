@@ -18,7 +18,7 @@ public:
 	void init() override {
 
 		//initializse position as a entity a component of type Position Component
-		position = &entity->getComponent<PositionComponent>();
+		position = &entity->getComponent<TransformComponent>();
 
 		srcRect.x = srcRect.y = 0;
 		srcRect.w = srcRect.h = 32;
@@ -36,7 +36,7 @@ public:
 
 private:
 	//reference to the posiiton because spritecomponent is responsible for drawing itself on the screen
-	PositionComponent* position;
+	TransformComponent* position;
 	SDL_Texture* texture;
 	SDL_Rect srcRect, destRect;
 
