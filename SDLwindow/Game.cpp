@@ -3,7 +3,7 @@
 #include "Map.hpp"
 #include "ECS/ECS.hpp"
 #include "ECS/Components.hpp"
-
+#include "Vector2D.hpp"
 
 Map* map;
 
@@ -67,8 +67,8 @@ void Game::update()
 {
 	manager.refresh();
 	manager.update();
-
-	if (player.getComponent<TransformComponent>().x()> 100)
+	player.getComponent<TransformComponent>().position.Add(Vector2D(5, 0));
+	if (player.getComponent<TransformComponent>().position.x > 100)
 	{
 		player.getComponent<SpriteComponent>().setTex("Resources/enemy.png");
 	}
