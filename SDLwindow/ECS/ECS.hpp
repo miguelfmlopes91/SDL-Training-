@@ -40,6 +40,7 @@ public:
 	virtual void init() {} //accesses other components
 	virtual void update() {}
 	virtual void draw() {}
+	virtual ~Component(){}
 
 };
 
@@ -56,11 +57,11 @@ public:
 	void update() {
 		//entity will loop through all of its components and update them
 		for (auto& c : components) c->update();
-		for (auto& c : components) c->draw();
-
 	}
 
-	void draw() {}
+	void draw() {
+		for (auto& c : components) c->draw();
+	}
 	bool isActive() const { return active; }
 	void destroy() { active = false; }
 
@@ -72,8 +73,8 @@ public:
 	}
 
 	//be able to add a component to entity
-	template<typename T, typename... Targs>
-	T& addComponent(Targs&&... mArgs)
+	template<typename T, typename... TArgs>
+	T& addComponent(TArgs&&... mArgs)
 	{
 		T* c(new T(std::forward<TArgs>(mArgs)...));
 		c->entity = this;

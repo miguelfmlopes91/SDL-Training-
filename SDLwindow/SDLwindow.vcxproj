@@ -155,6 +155,8 @@
   <ItemGroup>
     <ClInclude Include="Components.h" />
     <ClInclude Include="ECS.hpp" />
+    <ClInclude Include="ECS\PositionComponent.hpp" />
+    <ClInclude Include="ECS\SpriteComponent.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Map.hpp" />
