@@ -69,7 +69,7 @@ public:
 	template<typename T> bool hasComponent() const
 	{
 		//return from the bitset if it has component from a position component
-		return componentBitSet[getComponentTypeID<T>]
+		return componentBitSet[getComponentTypeID<T>()];
 	}
 
 	//be able to add a component to entity

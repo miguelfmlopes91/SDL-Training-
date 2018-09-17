@@ -18,14 +18,22 @@ public:
 	int speed = 3;
 
 
-
 	TransformComponent() {
 		position.x = 0.0f;
 		position.y = 0.0f;;
 	}
+
 	TransformComponent(int x, int y) {
 		position.x = x;
 		position.y = y;
+	}
+
+	TransformComponent(float x, float y, int h, int w, int sc) {
+		position.x = 0.0f;
+		position.y = 0.0f;
+		height = h;
+		width = w;
+		scale = sc;
 	}
 
 	void init() override {

@@ -5,6 +5,7 @@
 #include "ECS/Components.hpp"
 #include "Vector2D.hpp"
 #include "ECS\KeyboardController.hpp"
+#include "Collision.hpp"
 
 Map* map;
 Manager manager;
@@ -13,6 +14,7 @@ SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
 auto& player(manager.addEntity());
+auto& wall(manager.addEntity());
 
 Game::Game()
 {}
@@ -45,9 +47,11 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("Resources/player.png");
 	player.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>("player");
 
-	//Player.getComponent<TransformComponent>().setPos(300, 300);
-
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
+	wall.addComponent<SpriteComponent>("Resources/enemy.png");
+	wall.addComponent<ColliderComponent>("wall");
 }
 
 void Game::handleEvents()
