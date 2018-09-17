@@ -10,6 +10,11 @@ public:
 	SpriteComponent(const char* path) {
 		setTex(path);
 	};
+	~SpriteComponent() {
+		SDL_DestroyTexture(texture);
+	}
+
+
 
 	void setTex(const char* path) {
 		texture = TextureManager::LoadTexure(path);
