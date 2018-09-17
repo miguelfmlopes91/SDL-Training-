@@ -20,7 +20,12 @@ public:
 
 	TransformComponent() {
 		position.x = 0.0f;
-		position.y = 0.0f;;
+		position.y = 0.0f;
+	}
+	TransformComponent(int sc) {
+		position.x = 0.0f;
+		position.y = 0.0f;
+		scale = sc;
 	}
 
 	TransformComponent(int x, int y) {
@@ -41,7 +46,7 @@ public:
 		velocity.y = 0;
 	}
 	void update() override {
-		position.x += velocity.x * speed;
-		position.y += velocity.y * speed;
+		position.x += static_cast<int>(velocity.x * speed);
+		position.y += static_cast<int>(velocity.y * speed);
 	}
 };
