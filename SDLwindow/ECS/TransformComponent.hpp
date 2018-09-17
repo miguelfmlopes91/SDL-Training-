@@ -19,31 +19,28 @@ public:
 
 
 	TransformComponent() {
-		position.x = 0.0f;
-		position.y = 0.0f;
+		position.Zero();
 	}
 	TransformComponent(int sc) {
-		position.x = 0.0f;
-		position.y = 0.0f;
+		position.Zero();
 		scale = sc;
 	}
 
 	TransformComponent(int x, int y) {
-		position.x = x;
-		position.y = y;
+		position.Zero();
 	}
 
 	TransformComponent(float x, float y, int h, int w, int sc) {
-		position.x = 0.0f;
-		position.y = 0.0f;
+
+		position.x = x;
+		position.y = y;
 		height = h;
 		width = w;
 		scale = sc;
 	}
 
 	void init() override {
-		velocity.x = 0;
-		velocity.y = 0;
+		velocity.Zero();
 	}
 	void update() override {
 		position.x += static_cast<int>(velocity.x * speed);

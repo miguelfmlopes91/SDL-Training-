@@ -49,7 +49,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 
-	wall.addComponent<TransformComponent>(3000.0f, 3000.0f, 300, 20, 2);
+	wall.addComponent<TransformComponent>(300.0f, 30.0f, 300, 20, 2);
 	wall.addComponent<SpriteComponent>("Resources/dirt.png");
 	wall.addComponent<ColliderComponent>("wall");
 }
@@ -78,6 +78,8 @@ void Game::update()
 	if (Collision::AABB(player.getComponent<ColliderComponent>().collider, wall.getComponent<ColliderComponent>().collider))
 	{
 		player.getComponent<TransformComponent>().scale = 1;
+		player.getComponent<TransformComponent>().velocity*-1;
+
 		std::cout << "WALL HIT!" << std::endl;
 	}
 }
