@@ -162,6 +162,7 @@
     <ClInclude Include="ECS\KeyboardController.hpp" />
     <ClInclude Include="ECS\PositionComponent.hpp" />
     <ClInclude Include="ECS\SpriteComponent.hpp" />
+    <ClInclude Include="ECS\TileComponent.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Map.hpp" />

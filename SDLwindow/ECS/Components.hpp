@@ -3,3 +3,4 @@
 #include "TransformComponent.hpp"
 #include "SpriteComponent.hpp"
 #include"ColliderComponent.hpp"
+#include "TileComponent.h"
