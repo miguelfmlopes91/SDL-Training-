@@ -22,10 +22,14 @@ public:
 
 	TileComponent(int srcX, int srcY, int xpos, int ypos, const char* path) {
 		texture = TextureManager::LoadTexure(path);
+		
+		position.x = xpos;
+		position.y = ypos;
 
 		srcRect.x = srcX;
 		srcRect.y = srcY;
 		srcRect.w = srcRect.h = 32;
+
 		destRect.x = xpos;
 		destRect.y = ypos;
 		destRect.w = destRect.h = 64;
@@ -46,8 +50,8 @@ public:
 
 	void update() override
 	{
-		//destRect.x = static_cast<int>(position.x - Game::camera.x);
-		//destRect.y = static_cast<int>(position.y - Game::camera.y);
+		destRect.x = static_cast<int>(position.x - Game::camera.x);
+		destRect.y = static_cast<int>(position.y - Game::camera.y);
 	}
 	void draw() override
 	{
