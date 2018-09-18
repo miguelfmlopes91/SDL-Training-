@@ -56,11 +56,11 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	map = new Map();
 
-	Map::LoadMap("Resources/mymap.map", 32, 32);
+	Map::LoadMap("Resources/mymap.map", 16, 16);
 
 
 	player.addComponent<TransformComponent>(2);
-	player.addComponent<SpriteComponent>("Resources/player.png");
+	player.addComponent<SpriteComponent>("Resources/player_anims.png",2,100);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
