@@ -22,7 +22,9 @@ public:
 		position.Zero();
 	}
 	TransformComponent(int sc) {
-		position.Zero();
+		//set the player at the middle of the screen
+		position.x = 400;
+		position.y = 320;
 		scale = sc;
 	}
 
@@ -43,7 +45,8 @@ public:
 		velocity.Zero();
 	}
 	void update() override {
-		position.x += static_cast<int>(velocity.x * speed);
-		position.y += static_cast<int>(velocity.y * speed);
+		//position.x += static_cast<int>(velocity.x * speed);
+		//position.y += static_cast<int>(velocity.y * speed);
+
 	}
 };
