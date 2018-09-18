@@ -159,6 +159,7 @@
     <ClInclude Include="Collision.hpp" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="ECS.hpp" />
+    <ClInclude Include="ECS\Animation.h" />
     <ClInclude Include="ECS\ColliderComponent.hpp" />
     <ClInclude Include="ECS\KeyboardController.hpp" />
     <ClInclude Include="ECS\PositionComponent.hpp" />

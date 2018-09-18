@@ -60,7 +60,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 
 	player.addComponent<TransformComponent>(2);
-	player.addComponent<SpriteComponent>("Resources/player_anims.png",2,100);
+	player.addComponent<SpriteComponent>("Resources/player_anims.png",true);
 	player.addComponent<KeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
